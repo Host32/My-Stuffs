@@ -26,11 +26,6 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :encrypted_password, "Encrypted password", class: "control-label" %>
-    <%= text_input f, :encrypted_password, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
