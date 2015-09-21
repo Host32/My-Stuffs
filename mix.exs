@@ -9,7 +9,8 @@ defmodule MyStuffs.Mixfile do
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     docs: [extras: ["README.md"]]]
   end
 
   # Configuration for the OTP application
@@ -34,6 +35,8 @@ defmodule MyStuffs.Mixfile do
      {:mariaex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:earmark, "~> 0.1", only: :dev},
+     {:ex_doc, "~> 0.8", only: :dev}]
   end
 end
