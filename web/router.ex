@@ -20,6 +20,10 @@ defmodule MyStuffs.Router do
 
     get "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
+
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    delete "/login", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
