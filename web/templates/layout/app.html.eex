@@ -45,12 +45,12 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <i class="fa fa-chevron-down"></i></a>
               <ul class="dropdown-menu">
-                <li>
-                  <%= link "Login", to: session_path(@conn, :new) %>
-                </li>
-                <li>
-                  <%= link "Register", to: registration_path(@conn, :new) %>
-                </li>
+                <%= if logged_in?(@conn) do %>
+                  <li><%= link "Logout", to: session_path(@conn, :delete), method: :delete %></li>
+                <% else %>
+                  <li><%= link "Login", to: session_path(@conn, :new) %></li>
+                  <li><%= link "Register", to: registration_path(@conn, :new) %></li>
+                <% end %>
               </ul>
             </li>
           </ul>
@@ -115,9 +115,9 @@
         <div class="col col-sm-9">
           <div class="panel panel-default">
             <div class="panel-body">
-             <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-  			     <p class="alert alert-success" role="alert"><%= get_flash(@conn, :success) %></p>
-  			     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+              <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+  			      <p class="alert alert-success" role="alert"><%= get_flash(@conn, :success) %></p>
+  			      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
               <%= @inner %>
 

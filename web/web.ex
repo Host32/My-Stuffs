@@ -19,7 +19,7 @@ defmodule MyStuffs.Web do
   def model do
     quote do
       use Ecto.Model
-      
+
     end
   end
 
@@ -46,6 +46,8 @@ defmodule MyStuffs.Web do
       use Phoenix.HTML
 
       import MyStuffs.Router.Helpers
+
+      import MyStuffs.Session, only: [current_user: 1, logged_in?: 1]
     end
   end
 
