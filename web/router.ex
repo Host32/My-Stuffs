@@ -18,7 +18,8 @@ defmodule MyStuffs.Router do
 
     get "/", PageController, :index
 
-    resources "/users", UserController
+    get "/register", RegistrationController, :new
+    post "/register", RegistrationController, :create
   end
 
   # Other scopes may use custom stacks.

@@ -45,12 +45,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <i class="fa fa-chevron-down"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Login</a>
-                </li>
-                <li><a href="#">Profile</a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="#">About</a>
+                <li>
+                  <%= link "Register", to: registration_path(@conn, :new) %>
                 </li>
               </ul>
             </li>
@@ -116,15 +112,9 @@
         <div class="col col-sm-9">
           <div class="panel panel-default">
             <div class="panel-body">
-              <% if get_flash(@conn, :info) do %>
-                 <p class="alert alert-success" role="alert"><%= get_flash(@conn, :info) %></p>
-              <% end %>
-              <% if get_flash(@conn, :success) do %>
-      			     <p class="alert alert-success" role="alert"><%= get_flash(@conn, :success) %></p>
-              <% end %>
-              <% if get_flash(@conn, :error) do %>
-      			     <p class="alert alert-success" role="alert"><%= get_flash(@conn, :error) %></p>
-              <% end %>
+             <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+  			     <p class="alert alert-success" role="alert"><%= get_flash(@conn, :success) %></p>
+  			     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
               <%= @inner %>
 
@@ -137,6 +127,9 @@
     <footer>
 
     </footer>
-	<script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
