@@ -9,7 +9,7 @@ defmodule MyStuffs.SessionController do
     case MyStuffs.Session.login(session_params, MyStuffs.Repo) do
       {:ok, user} ->
         conn
-        |> put_session(:current_user, user.id)
+        |> put_session(:current_user, user)
         |> put_flash(:info, "Logged In")
         |> redirect(to: "/")
       :error ->

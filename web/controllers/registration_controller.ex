@@ -13,6 +13,7 @@ defmodule MyStuffs.RegistrationController do
     if changeset.valid? do
       user = MyStuffs.Registration.create(changeset, MyStuffs.Repo)
       conn
+      |> put_session(:current_user, user)
       |> put_flash(:success, "Your account was created")
       |> redirect(to: "/")
     else
