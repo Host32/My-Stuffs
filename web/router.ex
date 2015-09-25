@@ -24,6 +24,8 @@ defmodule MyStuffs.Router do
     get "/login", SessionController, :new
     post "/login", SessionController, :create
     delete "/login", SessionController, :delete
+
+    resources "/artists", ArtistController
   end
 
   # Other scopes may use custom stacks.
