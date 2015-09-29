@@ -26,6 +26,8 @@ defmodule MyStuffs.Router do
     delete "/login", SessionController, :delete
 
     resources "/artists", ArtistController
+    resources "/genres", GenreController
+    resources "/parental_ratings", ParentalRatingController
   end
 
   # Other scopes may use custom stacks.

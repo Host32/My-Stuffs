@@ -1,0 +1,18 @@
+<h2>Show parental rating</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @parental_rating.title %>
+  </li>
+
+  <li>
+    <strong>Minimum age:</strong>
+    <%= @parental_rating.minimum_age %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: parental_rating_path(@conn, :edit, @parental_rating) %>
+<%= link "Back", to: parental_rating_path(@conn, :index) %>

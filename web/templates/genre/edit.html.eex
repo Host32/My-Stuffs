@@ -1,0 +1,6 @@
+<h2>Edit genre</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: genre_path(@conn, :update, @genre) %>
+
+<%= link "Back", to: genre_path(@conn, :index) %>

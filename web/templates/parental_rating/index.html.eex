@@ -1,0 +1,28 @@
+<h2>Listing parental ratings</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Minimum age</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for parental_rating <- @parental_ratings do %>
+    <tr>
+      <td><%= parental_rating.title %></td>
+      <td><%= parental_rating.minimum_age %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: parental_rating_path(@conn, :show, parental_rating), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: parental_rating_path(@conn, :edit, parental_rating), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: parental_rating_path(@conn, :delete, parental_rating), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New parental rating", to: parental_rating_path(@conn, :new) %>

@@ -1,0 +1,13 @@
+<h2>Show genre</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @genre.title %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: genre_path(@conn, :edit, @genre) %>
+<%= link "Back", to: genre_path(@conn, :index) %>

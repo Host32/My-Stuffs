@@ -1,0 +1,6 @@
+<h2>Edit parental rating</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: parental_rating_path(@conn, :update, @parental_rating) %>
+
+<%= link "Back", to: parental_rating_path(@conn, :index) %>

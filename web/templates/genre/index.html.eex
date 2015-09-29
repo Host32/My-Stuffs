@@ -1,0 +1,26 @@
+<h2>Listing genres</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for genre <- @genres do %>
+    <tr>
+      <td><%= genre.title %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: genre_path(@conn, :show, genre), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: genre_path(@conn, :edit, genre), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: genre_path(@conn, :delete, genre), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New genre", to: genre_path(@conn, :new) %>
