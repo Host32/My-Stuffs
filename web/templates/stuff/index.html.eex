@@ -1,0 +1,40 @@
+<h2>Listing stuffs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Title</th>
+      <th>Short description</th>
+      <th>Sinopsis</th>
+      <th>Release date</th>
+      <th>Parental rating</th>
+      <th>Duration</th>
+      <th>Pages</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for stuff <- @stuffs do %>
+    <tr>
+      <td><%= stuff.type %></td>
+      <td><%= stuff.title %></td>
+      <td><%= stuff.short_description %></td>
+      <td><%= stuff.sinopsis %></td>
+      <td><%= stuff.release_date %></td>
+      <td><%= stuff.parental_rating_id %></td>
+      <td><%= stuff.duration %></td>
+      <td><%= stuff.pages %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: stuff_path(@conn, :show, stuff), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: stuff_path(@conn, :edit, stuff), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: stuff_path(@conn, :delete, stuff), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New stuff", to: stuff_path(@conn, :new) %>

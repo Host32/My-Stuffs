@@ -1,0 +1,48 @@
+<h2>Show stuff</h2>
+
+<ul>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @stuff.type %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @stuff.title %>
+  </li>
+
+  <li>
+    <strong>Short description:</strong>
+    <%= @stuff.short_description %>
+  </li>
+
+  <li>
+    <strong>Sinopsis:</strong>
+    <%= @stuff.sinopsis %>
+  </li>
+
+  <li>
+    <strong>Release date:</strong>
+    <%= @stuff.release_date %>
+  </li>
+
+  <li>
+    <strong>Parental rating:</strong>
+    <%= @stuff.parental_rating_id %>
+  </li>
+
+  <li>
+    <strong>Duration:</strong>
+    <%= @stuff.duration %>
+  </li>
+
+  <li>
+    <strong>Pages:</strong>
+    <%= @stuff.pages %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: stuff_path(@conn, :edit, @stuff) %>
+<%= link "Back", to: stuff_path(@conn, :index) %>
