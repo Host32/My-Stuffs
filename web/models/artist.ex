@@ -7,7 +7,7 @@ defmodule MyStuffs.Artist do
     field :birth, Ecto.Date
     field :jobs, :string
 
-    has_many :images, {"artists_images", Image}, foreign_key: :assoc_id
+    has_many :images, {"artists_images", MyStuffs.Image}, foreign_key: :assoc_id
 
     timestamps
   end
