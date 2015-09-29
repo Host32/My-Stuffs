@@ -99,16 +99,13 @@
                 <h3 class="highlight">Channels <i class="fa fa-dashboard pull-right"></i></h3>
               </li>
               <li>
-                <a href="#">Jobs</a>
+                <%= link "Artists", to: artist_path(@conn, :index) %>
               </li>
               <li>
-                <a href="#">Artists</a>
+                <%= link "Parental Ratings", to: parental_rating_path(@conn, :index) %>
               </li>
               <li>
-                <a href="#">Parental Ratings</a>
-              </li>
-              <li>
-                <a href="#">Genres</a>
+                <%= link "Genres", to: genre_path(@conn, :index) %>
               </li>
             </ul>
           </div>
