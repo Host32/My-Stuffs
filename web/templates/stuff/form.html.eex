@@ -1,51 +1,19 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below:</p>
-      <ul>
-        <%= for {attr, message} <- f.errors do %>
-          <li><%= humanize(attr) %> <%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="form-group">
+  <%= label @form, :title, "Title", class: "control-label" %>
+  <%= text_input @form, :title, class: "form-control" %>
+</div>
 
-  <div class="form-group">
-    <%= label f, :type, "Type", class: "control-label" %>
-    <%= number_input f, :type, class: "form-control" %>
-  </div>
+<div class="form-group">
+  <%= label @form , :short_description, "Short description", class: "control-label" %>
+  <%= textarea @form , :short_description, class: "form-control" %>
+</div>
 
-  <div class="form-group">
-    <%= label f, :title, "Title", class: "control-label" %>
-    <%= text_input f, :title, class: "form-control" %>
-  </div>
+<div class="form-group">
+  <%= label @form , :sinopsis, "Sinopsis", class: "control-label" %>
+  <%= textarea @form , :sinopsis, class: "form-control" %>
+</div>
 
-  <div class="form-group">
-    <%= label f, :short_description, "Short description", class: "control-label" %>
-    <%= textarea f, :short_description, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :sinopsis, "Sinopsis", class: "control-label" %>
-    <%= textarea f, :sinopsis, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :release_date, "Release date", class: "control-label" %>
-    <%= date_select f, :release_date, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :duration, "Duration", class: "control-label" %>
-    <%= time_select f, :duration, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :pages, "Pages", class: "control-label" %>
-    <%= number_input f, :pages, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
-<% end %>
+<div class="form-group">
+  <%= label @form , :release_date, "Release date", class: "control-label" %>
+  <%= date_select @form , :release_date, class: "form-control" %>
+</div>

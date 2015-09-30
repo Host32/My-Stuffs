@@ -1,4 +1,4 @@
-defmodule MyStuffs.StuffController do
+defmodule MyStuffs.BookController do
   use MyStuffs.Web, :controller
 
   alias MyStuffs.Stuff
@@ -22,7 +22,7 @@ defmodule MyStuffs.StuffController do
       {:ok, _stuff} ->
         conn
         |> put_flash(:info, "Stuff created successfully.")
-        |> redirect(to: stuff_path(conn, :index))
+        |> redirect(to: book_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -47,7 +47,7 @@ defmodule MyStuffs.StuffController do
       {:ok, stuff} ->
         conn
         |> put_flash(:info, "Stuff updated successfully.")
-        |> redirect(to: stuff_path(conn, :show, stuff))
+        |> redirect(to: book_path(conn, :show, stuff))
       {:error, changeset} ->
         render(conn, "edit.html", stuff: stuff, changeset: changeset)
     end
@@ -62,6 +62,6 @@ defmodule MyStuffs.StuffController do
 
     conn
     |> put_flash(:info, "Stuff deleted successfully.")
-    |> redirect(to: stuff_path(conn, :index))
+    |> redirect(to: book_path(conn, :index))
   end
 end

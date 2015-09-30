@@ -38,4 +38,10 @@ defmodule MyStuffs.Stuff do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  def type_saga, do: @type_saga
+  def type_serie, do: @type_serie
+  def type_film, do: @type_film
+  def type_book, do: @type_book
+
 end

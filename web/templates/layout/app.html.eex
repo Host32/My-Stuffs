@@ -107,6 +107,9 @@
               <li>
                 <%= link "Genres", to: genre_path(@conn, :index) %>
               </li>
+              <li>
+                <%= link "Books", to: book_path(@conn, :index) %>
+              </li>
             </ul>
           </div>
         </div>

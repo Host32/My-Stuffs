@@ -1,4 +1,4 @@
-<h2>Show stuff</h2>
+<h2>Show book</h2>
 
 <ul>
 
@@ -44,5 +44,5 @@
 
 </ul>
 
-<%= link "Edit", to: stuff_path(@conn, :edit, @stuff) %>
-<%= link "Back", to: stuff_path(@conn, :index) %>
+<%= link "Edit", to: book_path(@conn, :edit, @stuff) %>
+<%= link "Back", to: book_path(@conn, :index) %>

@@ -1,4 +1,4 @@
-<h2>Listing stuffs</h2>
+<h2>Listing books</h2>
 
 <table class="table">
   <thead>
@@ -28,13 +28,13 @@
       <td><%= stuff.pages %></td>
 
       <td class="text-right">
-        <%= link "Show", to: stuff_path(@conn, :show, stuff), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: stuff_path(@conn, :edit, stuff), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: stuff_path(@conn, :delete, stuff), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Show", to: book_path(@conn, :show, stuff), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: book_path(@conn, :edit, stuff), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: book_path(@conn, :delete, stuff), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New stuff", to: stuff_path(@conn, :new) %>
+<%= link "New book", to: book_path(@conn, :new) %>
