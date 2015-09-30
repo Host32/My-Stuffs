@@ -20,6 +20,7 @@ defmodule MyStuffs.Stuff do
     has_many :stuffs_genres, MyStuffs.StuffGenre
     has_many :genres, through: [:stuffs_genres, :genres]
     has_many :comments, {"stuffs_comments", MyStuffs.Comment}, foreign_key: :assoc_id
+    has_many :seasons, MyStuffs.Season
 
     timestamps
   end

@@ -1,0 +1,23 @@
+<h2>Show episode</h2>
+
+<ul>
+
+  <li>
+    <strong>Number:</strong>
+    <%= @episode.number %>
+  </li>
+
+  <li>
+    <strong>Release date:</strong>
+    <%= @episode.release_date %>
+  </li>
+
+  <li>
+    <strong>Season:</strong>
+    <%= @episode.season_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: episode_path(@conn, :edit, @episode) %>
+<%= link "Back", to: episode_path(@conn, :index) %>

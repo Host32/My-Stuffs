@@ -29,6 +29,8 @@ defmodule MyStuffs.Router do
     resources "/genres", GenreController
     resources "/parental_ratings", ParentalRatingController
     resources "/stuffs", StuffController
+    resources "/seasons", SeasonController
+    resources "/episodes", EpisodeController
   end
 
   # Other scopes may use custom stacks.

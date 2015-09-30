@@ -1,0 +1,23 @@
+<h2>Show season</h2>
+
+<ul>
+
+  <li>
+    <strong>Number:</strong>
+    <%= @season.number %>
+  </li>
+
+  <li>
+    <strong>Release date:</strong>
+    <%= @season.release_date %>
+  </li>
+
+  <li>
+    <strong>Stuff:</strong>
+    <%= @season.stuff_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: season_path(@conn, :edit, @season) %>
+<%= link "Back", to: season_path(@conn, :index) %>
