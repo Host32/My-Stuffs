@@ -2688,7 +2688,7 @@ input[type="button"].btn-block {
 }
 .search-wrapper {
   background-color: #dbdee1;
-  height: 86px;
+  height: 70px;
 }
 .list-input {
   margin-left: 48px;
@@ -3594,7 +3594,6 @@ ul#navigation a:hover {
 }
 .search {
   position: relative;
-  top: -10px;
 }
 .search .search__field {
   display: inline-block;
