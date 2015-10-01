@@ -1,48 +1,38 @@
-<h2>Show book</h2>
+<h2><%= @stuff.title %></h2>
 
-<ul>
+<div class="row">
+  <div class="col-sm-4">
 
-  <li>
-    <strong>Type:</strong>
-    <%= @stuff.type %>
-  </li>
+  </div>
+  <div class="col-sm-8">
+    <ul>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @stuff.title %>
-  </li>
+      <li>
+        <strong>Pages:</strong>
+        <%= @stuff.pages %>
+      </li>
 
-  <li>
-    <strong>Short description:</strong>
-    <%= @stuff.short_description %>
-  </li>
+      <li>
+        <strong>Release date:</strong>
+        <%= @stuff.release_date %>
+      </li>
 
-  <li>
-    <strong>Sinopsis:</strong>
-    <%= @stuff.sinopsis %>
-  </li>
+      <li>
+        <strong>Parental rating:</strong>
+        <%= @stuff.parental_rating_id %>
+      </li>
 
-  <li>
-    <strong>Release date:</strong>
-    <%= @stuff.release_date %>
-  </li>
+      <li>
+        <%= @stuff.short_description %>
+      </li>
+    </ul>
+  </div>
+</div>
 
-  <li>
-    <strong>Parental rating:</strong>
-    <%= @stuff.parental_rating_id %>
-  </li>
-
-  <li>
-    <strong>Duration:</strong>
-    <%= @stuff.duration %>
-  </li>
-
-  <li>
-    <strong>Pages:</strong>
-    <%= @stuff.pages %>
-  </li>
-
-</ul>
+<h3>Sinopsis:</h3>
+<p>
+  <%= @stuff.sinopsis %>
+</p>
 
 <%= link "Edit", to: book_path(@conn, :edit, @stuff) %>
 <%= link "Back", to: book_path(@conn, :index) %>
