@@ -809,12 +809,12 @@ table {
   z-index: 100;
 }
 .top-scroll a {
-  background: url("../images/components/arrow.svg") repeat scroll center center rgba(76, 65, 69, 0.8);
+  background: url("/images/components/arrow.svg") repeat scroll center center rgba(76, 65, 69, 0.8);
   display: block;
   height: 50px;
 }
 .top-scroll a:hover {
-  background: url("../images/components/arrow.svg") repeat scroll center center rgba(254, 80, 90, 0.8);
+  background: url("/images/components/arrow.svg") repeat scroll center center rgba(254, 80, 90, 0.8);
 }
 .inv-em {
   top: -5px;

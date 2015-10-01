@@ -1,40 +1,105 @@
-<h2>Listing books</h2>
+<h2 class="page-heading heading--outcontainer">Books</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Title</th>
-      <th>Short description</th>
-      <th>Sinopsis</th>
-      <th>Release date</th>
-      <th>Parental rating</th>
-      <th>Duration</th>
-      <th>Pages</th>
+<div class="col-sm-8 col-md-9">
+  <div class="select-area">
+    <form class="select" method='get'>
+      <select name="select_item" class="select__sort" tabindex="0">
+        <option value="1" selected='selected'>London</option>
+        <option value="2">New York</option>
+        <option value="3">Paris</option>
+        <option value="4">Berlin</option>
+        <option value="5">Moscow</option>
+        <option value="3">Minsk</option>
+        <option value="4">Warsawa</option>
+        <option value="5">Kiev</option>
+      </select>
+    </form>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for stuff <- @stuffs do %>
-    <tr>
-      <td><%= stuff.type %></td>
-      <td><%= stuff.title %></td>
-      <td><%= stuff.short_description %></td>
-      <td><%= stuff.sinopsis %></td>
-      <td><%= stuff.release_date %></td>
-      <td><%= stuff.parental_rating_id %></td>
-      <td><%= stuff.duration %></td>
-      <td><%= stuff.pages %></td>
+    <div class="datepicker">
+      <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
+      <input type="text" id="datepicker" value='03/10/2014' class="datepicker__input">
+    </div>
 
-      <td class="text-right">
-        <%= link "Show", to: book_path(@conn, :show, stuff), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: book_path(@conn, :edit, stuff), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: book_path(@conn, :delete, stuff), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+    <form class="select select--cinema" method='get'>
+      <select name="select_item" class="select__sort" tabindex="0">
+        <option value="1" selected='selected'>Cineworld</option>
+        <option value="2">Empire</option>
+        <option value="3">Everyman</option>
+        <option value="4">Odeon</option>
+        <option value="5">Picturehouse</option>
+      </select>
+    </form>
 
-<%= link "New book", to: book_path(@conn, :new) %>
+    <form class="select select--film-category" method='get'>
+      <select name="select_item" class="select__sort" tabindex="0">
+        <option value="2" selected='selected'>Children's</option>
+        <option value="3">Comedy</option>
+        <option value="4">Drama</option>
+        <option value="5">Fantasy</option>
+        <option value="6">Horror</option>
+        <option value="7">Thriller</option>
+      </select>
+    </form>
+
+  </div>
+
+  <div class="tags-area">
+    <div class="tags tags--unmarked">
+      <span class="tags__label">Sorted by:</span>
+      <ul>
+        <li class="item-wrap"><a href="#" class="tags__item item-active" data-filter='all'>all</a></li>
+        <li class="item-wrap"><a href="#" class="tags__item" data-filter='release'>release date</a></li>
+        <li class="item-wrap"><a href="#" class="tags__item" data-filter='popularity'>popularity</a></li>
+        <li class="item-wrap"><a href="#" class="tags__item" data-filter='comments'>comments</a></li>
+        <li class="item-wrap"><a href="#" class="tags__item" data-filter='ending'>ending soon</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <%= for stuff <- @stuffs do %>
+  <div class="stuff stuff--preview release">
+    <div class="col-sm-5 col-md-3">
+      <div class="stuff__images">
+        <img alt='' src="/images/movie/movie-sample1.jpg">
+      </div>
+      <div class="stuff__feature">
+        <a href="#" class="stuff__feature-item stuff__feature--comment">123</a>
+        <a href="#" class="stuff__feature-item stuff__feature--video">7</a>
+        <a href="#" class="stuff__feature-item stuff__feature--photo">352</a>
+      </div>
+    </div>
+
+    <div class="col-sm-7 col-md-9">
+      <%= link stuff.title, to: book_path(@conn, :show, stuff), class: "stuff__title link--huge" %>
+
+      <p class="stuff__pages"><%= stuff.pages %> pages</p>
+
+      <p class="stuff__option"><strong>Year: </strong><a href="#">2012</a></p>
+      <p class="stuff__option"><strong>Genre: </strong><a href="#">Adventure</a>, <a href="#">Fantazy</a></p>
+      <p class="stuff__option"><strong>Release date: </strong><%= stuff.release_date %></p>
+      <p class="stuff__option"><strong>Writer: </strong><a href="#">Peter Jackson</a></p>
+      <p class="stuff__option"><strong>Age restriction: </strong><a href="#"><%= stuff.parental_rating_id %></a></p>
+      <p class="stuff__option"><strong>Short Description: </strong><%= stuff.short_description %></p>
+
+      <div class="stuff__btns">
+        <a href="#" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this stuff</span></a>
+        <a href="#" class="watchlist">Add to watchlist</a>
+      </div>
+
+      <div class="preview-footer">
+        <div class="stuff__rate"><div class="score"></div><span class="stuff__rate-number">170 votes</span> <span class="stuff__rating">5.0</span></div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+  <% end %>
+
+  <%= link "New book", to: book_path(@conn, :new) %>
+</div>
+
+<script type="text/javascript">
+$(function(){
+  require("web/static/js/stuff_list");
+});
+</script>
