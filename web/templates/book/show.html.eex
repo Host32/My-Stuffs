@@ -1,38 +1,229 @@
-<h2><%= @stuff.title %></h2>
+<div class="col-sm-8 col-md-9">
+  <div class="stuff">
+    <h2 class="page-heading"><%= @stuff.title %></h2>
 
-<div class="row">
-  <div class="col-sm-4">
+    <div class="stuff__info">
+      <div class="col-sm-6 col-md-4 movie-mobile">
+        <div class="stuff__images">
+          <span class="stuff__rating">5.0</span>
+          <img alt='' src="/images/movie/single-movie.jpg">
+        </div>
+        <div class="stuff__rate">Your vote: <div id='score' class="score"></div></div>
 
+        <div class="share">
+          <span class="share__marker">Share: </span>
+          <div class="addthis_toolbox addthis_default_style ">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-8">
+        <p class="stuff__pages"><%= @stuff.pages %> pages</p>
+
+        <p class="stuff__option"><strong>Year: </strong><a href="#">2012</a></p>
+        <p class="stuff__option"><strong>Genre: </strong><a href="#">Adventure</a>, <a href="#">Fantazy</a></p>
+        <p class="stuff__option"><strong>Release date: </strong><%= @stuff.release_date %></p>
+        <p class="stuff__option"><strong>Writer: </strong><a href="#">Peter Jackson</a></p>
+        <p class="stuff__option"><strong>Age restriction: </strong><a href="#"><%= @stuff.parental_rating_id %></a></p>
+        <p class="stuff__option"><strong>Short Description: </strong><%= @stuff.short_description %></p>
+
+        <a href="#" class="comment-link">Comments:  15</a>
+
+        <div class="stuff__btns">
+          <a href="#" class="btn btn-md btn--warning">book a ticket for this movie</a>
+          <a href="#" class="watchlist">Add to watchlist</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <h2 class="page-heading">Sinopsis</h2>
+
+    <p class="stuff__describe"><%= @stuff.sinopsis %></p>
+
+    <h2 class="page-heading">photos &amp; videos</h2>
+
+    <div class="stuff__media">
+      <div class="stuff__media-switch">
+        <a href="#" class="watchlist list--photo" data-filter='media-photo'>234 photos</a>
+        <a href="#" class="watchlist list--video" data-filter='media-video'>10 videos</a>
+      </div>
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <!--First Slide-->
+          <div class="swiper-slide media-video">
+            <a href='https://www.youtube.com/watch?v=Y5AehBA3IsE' class="stuff__media-item ">
+              <img alt='' src="/images/movie/movie-video1.jpg">
+            </a>
+          </div>
+
+          <!--Second Slide-->
+          <div class="swiper-slide media-video">
+            <a href='https://www.youtube.com/watch?v=Kb3ykVYvT4U' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-video2.jpg">
+            </a>
+          </div>
+
+          <!--Third Slide-->
+          <div class="swiper-slide media-photo">
+            <a href='/images/movie/movie-img1-lg.jpg' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-img1.jpg">
+            </a>
+          </div>
+
+          <!--Four Slide-->
+          <div class="swiper-slide media-photo">
+            <a href='/images/movie/movie-img2-lg.jpg' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-img2.jpg">
+            </a>
+          </div>
+
+          <!--Slide-->
+          <div class="swiper-slide media-photo">
+            <a href='/images/gallery/large/item-7.jpg' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-img3.jpg">
+            </a>
+          </div>
+
+          <!--Slide-->
+          <div class="swiper-slide media-photo">
+            <a href='/images/gallery/large/item-11.jpg' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-img4.jpg">
+            </a>
+          </div>
+
+          <!--First Slide-->
+          <div class="swiper-slide media-video">
+            <a href='https://www.youtube.com/watch?v=Y5AehBA3IsE' class="stuff__media-item ">
+              <img alt='' src="/images/movie/movie-video1.jpg">
+            </a>
+          </div>
+
+          <!--Second Slide-->
+          <div class="swiper-slide media-video">
+            <a href='https://www.youtube.com/watch?v=Kb3ykVYvT4U' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-video2.jpg">
+            </a>
+          </div>
+
+          <!--Slide-->
+          <div class="swiper-slide media-photo">
+            <a href='/images/gallery/large/item-15.jpg' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-img5.jpg">
+            </a>
+          </div>
+
+          <!--Slide-->
+          <div class="swiper-slide media-photo">
+            <a href='/images/gallery/large/item-16.jpg' class="stuff__media-item">
+              <img alt='' src="/images/movie/movie-img6.jpg">
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="col-sm-8">
-    <ul>
+  <h2 class="page-heading">comments (15)</h2>
 
-      <li>
-        <strong>Pages:</strong>
-        <%= @stuff.pages %>
-      </li>
+  <div class="comment-wrapper">
+    <form id="comment-form" class="comment-form" method='post'>
+      <textarea class="comment-form__text" placeholder='Add you comment here'></textarea>
+      <label class="comment-form__info">250 characters left</label>
+      <button type='submit' class="btn btn-md btn--danger comment-form__btn">add comment</button>
+    </form>
 
-      <li>
-        <strong>Release date:</strong>
-        <%= @stuff.release_date %>
-      </li>
+    <div class="comment-sets">
 
-      <li>
-        <strong>Parental rating:</strong>
-        <%= @stuff.parental_rating_id %>
-      </li>
+      <div class="comment">
+        <div class="comment__images">
+          <img alt='' src="/images/comment/avatar.jpg">
+        </div>
 
-      <li>
-        <%= @stuff.short_description %>
-      </li>
-    </ul>
+        <a href='#' class="comment__author"><span class="social-used fa fa-facebook"></span>Roberta Inetti</a>
+        <p class="comment__date">today | 03:04</p>
+        <p class="comment__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae enim sollicitudin, euismod erat id, fringilla lacus. Cras ut rutrum lectus. Etiam ante justo, volutpat at viverra a, mattis in velit. Morbi molestie rhoncus enim, vitae sagittis dolor tristique et.</p>
+        <a href='#' class="comment__reply">Reply</a>
+      </div>
+
+      <div class="comment">
+        <div class="comment__images">
+          <img alt='' src="/images/comment/avatar-olia.jpg">
+        </div>
+
+        <a href='#' class="comment__author"><span class="social-used fa fa-vk"></span>Olia Gozha</a>
+        <p class="comment__date">22.10.2013 | 14:40</p>
+        <p class="comment__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae enim sollicitudin, euismod erat id, fringilla lacus. Cras ut rutrum lectus. Etiam ante justo, volutpat at viverra a, mattis in velit. Morbi molestie rhoncus enim, vitae sagittis dolor tristique et.</p>
+        <a href='#' class="comment__reply">Reply</a>
+      </div>
+
+      <div class="comment comment--answer">
+        <div class="comment__images">
+          <img alt='' src="/images/comment/avatar-dmitriy.jpg">
+        </div>
+
+        <a href='#' class="comment__author"><span class="social-used fa fa-vk"></span>Dmitriy Pustovalov</a>
+        <p class="comment__date">today | 10:19</p>
+        <p class="comment__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae enim sollicitudin, euismod erat id, fringilla lacus. Cras ut rutrum lectus. Etiam ante justo, volutpat at viverra a, mattis in velit. Morbi molestie rhoncus enim, vitae sagittis dolor tristique et.</p>
+        <a href='#' class="comment__reply">Reply</a>
+      </div>
+
+      <div class="comment comment--last">
+        <div class="comment__images">
+          <img alt='' src="/images/comment/avatar-sia.jpg">
+        </div>
+
+        <a href='#' class="comment__author"><span class="social-used fa fa-facebook"></span>Sia Andrews</a>
+        <p class="comment__date"> 22.10.2013 | 12:31 </p>
+        <p class="comment__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae enim sollicitudin, euismod erat id, fringilla lacus. Cras ut rutrum lectus. Etiam ante justo, volutpat at viverra a, mattis in velit. Morbi molestie rhoncus enim, vitae sagittis dolor tristique et.</p>
+        <a href='#' class="comment__reply">Reply</a>
+      </div>
+
+      <div id='hide-comments' class="hide-comments">
+        <div class="comment">
+          <div class="comment__images">
+            <img alt='' src="/images/comment/avatar.jpg">
+          </div>
+
+          <a href='#' class="comment__author"><span class="social-used fa fa-facebook"></span>Roberta Inetti</a>
+          <p class="comment__date">today | 03:04</p>
+          <p class="comment__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae enim sollicitudin, euismod erat id, fringilla lacus. Cras ut rutrum lectus. Etiam ante justo, volutpat at viverra a, mattis in velit. Morbi molestie rhoncus enim, vitae sagittis dolor tristique et.</p>
+          <a href='#' class="comment__reply">Reply</a>
+        </div>
+
+        <div class="comment">
+          <div class="comment__images">
+            <img alt='' src="/images/comment/avatar-olia.jpg">
+          </div>
+
+          <a href='#' class="comment__author"><span class="social-used fa fa-vk"></span>Olia Gozha</a>
+          <p class="comment__date">22.10.2013 | 14:40</p>
+          <p class="comment__message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae enim sollicitudin, euismod erat id, fringilla lacus. Cras ut rutrum lectus. Etiam ante justo, volutpat at viverra a, mattis in velit. Morbi molestie rhoncus enim, vitae sagittis dolor tristique et.</p>
+          <a href='#' class="comment__reply">Reply</a>
+        </div>
+      </div>
+
+      <div class="comment-more">
+        <a href="#" class="watchlist">Show more comments</a>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<h3>Sinopsis:</h3>
-<p>
-  <%= @stuff.sinopsis %>
-</p>
+<aside class="col-sm-4 col-md-3">
+  <div class="sitebar">
+  </div>
+</aside>
 
-<%= link "Edit", to: book_path(@conn, :edit, @stuff) %>
-<%= link "Back", to: book_path(@conn, :index) %>
+<script type="text/javascript">
+$(function(){
+  require("web/static/js/stuff");
+});
+</script>
