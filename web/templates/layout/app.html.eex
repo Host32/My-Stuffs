@@ -216,7 +216,9 @@
   </div>
 
   <script src="/js/app.js"></script>
-
+  <script type="text/javascript">
+    require("web/static/js/app")
+  </script>
 </body>
 
 </html>

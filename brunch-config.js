@@ -15,7 +15,7 @@ exports.config = {
       // https://github.com/brunch/brunch/tree/master/docs#concatenation
       order: {
         before: [
-          "web/static/vendor/js/jquery.min.js",
+          "web/static/vendor/js/jquery-1.10.1.min.js",
           "web/static/vendor/js/modernizr.custom.js"
         ]
       }
