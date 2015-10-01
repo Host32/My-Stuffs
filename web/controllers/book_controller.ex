@@ -11,17 +11,17 @@ defmodule MyStuffs.BookController do
   end
 
   def new(conn, _params) do
-    changeset = Stuff.changeset(%Stuff{})
+    changeset = Stuff.book_changeset(%Stuff{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"stuff" => stuff_params}) do
-    changeset = Stuff.changeset(%Stuff{}, stuff_params)
+    changeset = Stuff.book_changeset(%Stuff{}, stuff_params)
 
     case Repo.insert(changeset) do
       {:ok, _stuff} ->
         conn
-        |> put_flash(:info, "Stuff created successfully.")
+        |> put_flash(:info, "Book created successfully.")
         |> redirect(to: book_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -35,18 +35,18 @@ defmodule MyStuffs.BookController do
 
   def edit(conn, %{"id" => id}) do
     stuff = Repo.get!(Stuff, id)
-    changeset = Stuff.changeset(stuff)
+    changeset = Stuff.book_changeset(stuff)
     render(conn, "edit.html", stuff: stuff, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "stuff" => stuff_params}) do
     stuff = Repo.get!(Stuff, id)
-    changeset = Stuff.changeset(stuff, stuff_params)
+    changeset = Stuff.book_changeset(stuff, stuff_params)
 
     case Repo.update(changeset) do
       {:ok, stuff} ->
         conn
-        |> put_flash(:info, "Stuff updated successfully.")
+        |> put_flash(:info, "Book updated successfully.")
         |> redirect(to: book_path(conn, :show, stuff))
       {:error, changeset} ->
         render(conn, "edit.html", stuff: stuff, changeset: changeset)
@@ -61,7 +61,7 @@ defmodule MyStuffs.BookController do
     Repo.delete!(stuff)
 
     conn
-    |> put_flash(:info, "Stuff deleted successfully.")
+    |> put_flash(:info, "Book deleted successfully.")
     |> redirect(to: book_path(conn, :index))
   end
 end

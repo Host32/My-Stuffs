@@ -10,8 +10,6 @@
     </div>
   <% end %>
 
-  <%= hidden_input f, :type, defaul: MyStuffs.Stuff.type_book %>
-
   <%= render MyStuffs.StuffView, "form.html", form: f %>
 
   <div class="form-group">

@@ -25,8 +25,8 @@ defmodule MyStuffs.Stuff do
     timestamps
   end
 
-  @required_fields ~w(type title short_description sinopsis release_date)
-  @optional_fields ~w(duration pages)
+  @book_required_fields ~w(title short_description sinopsis release_date pages)
+  @book_optional_fields ~w()
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -34,9 +34,10 @@ defmodule MyStuffs.Stuff do
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ :empty) do
+  def book_changeset(model, params \\ :empty) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @book_required_fields, @book_optional_fields)
+    |> put_change(:type, @type_book)
   end
 
   def type_saga, do: @type_saga
