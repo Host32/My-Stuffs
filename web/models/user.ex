@@ -27,5 +27,6 @@ defmodule MyStuffs.User do
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)
     |> validate_confirmation(:password)
+    |> unique_constraint(:email)
   end
 end
