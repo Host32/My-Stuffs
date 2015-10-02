@@ -4103,6 +4103,11 @@ ul#navigation a:hover {
   top: 8px;
   left: 0;
 }
+.social-used.fa-user {
+  background-color: #4c4145;
+  padding-top: 4px;
+  padding-left: 2px;
+}
 .social-used.fa-facebook {
   background-color: #3b5998;
   padding-top: 4px;

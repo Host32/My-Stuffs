@@ -1,0 +1,9 @@
+<div class="comment">
+  <div class="comment__images">
+    <img alt='' src="/images/comment/avatar.jpg">
+  </div>
+
+  <a href='#' class="comment__author"><span class="social-used fa fa-user"></span><%= @comment.user.name %></a>
+  <p class="comment__date"><%= @comment.inserted_at %></p>
+  <p class="comment__message"><%= @comment.body %></p>
+</div>
