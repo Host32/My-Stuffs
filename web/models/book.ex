@@ -18,7 +18,7 @@ defmodule MyStuffs.Book do
     end
 
     def with_comments(model) do
-      from t in model, preload: :comments
+      from t in model, preload: [comments: :user]
     end
 
     def with_genres(model) do

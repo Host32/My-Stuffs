@@ -7,7 +7,13 @@ defmodule MyStuffs.BookController do
   plug :scrub_params, "stuff" when action in [:create, :update]
 
   def index(conn, _params) do
-    stuffs = Book.Query.all()
+    stuffs = Stuff
+      |> Book.Query.with_genres
+      |> Book.Query.with_comments
+      |> Book.Query.with_parental_rating
+      |> Book.Query.with_images
+      |> Book.Query.with_writers
+      |> Book.Query.all
     render(conn, "index.html", stuffs: stuffs)
   end
 

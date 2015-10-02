@@ -15,6 +15,8 @@ defmodule MyStuffs.BookView do
     |> raw
   end
 
+  def parental_rating_link(_conn, nil), do: ""
+
   def parental_rating_link(conn, parental_rating) do
     content = case parental_rating.minimum_age do
       0 -> "#{parental_rating.title}"
