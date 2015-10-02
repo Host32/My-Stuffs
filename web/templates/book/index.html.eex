@@ -57,35 +57,35 @@
   </div>
 
   <%= for stuff <- @stuffs do %>
-  <div class="stuff stuff--preview release">
-    <div class="col-sm-5 col-md-3">
-      <div class="stuff__images">
-        <img alt='' src="/images/movie/movie-sample1.jpg">
+    <div class="stuff stuff--preview release">
+      <div class="col-sm-5 col-md-3">
+        <div class="stuff__images">
+          <img alt='' src="/images/movie/movie-sample1.jpg">
+        </div>
+        <div class="stuff__feature">
+          <a href="<%= book_path(@conn, :show, stuff) %>" class="stuff__feature-item stuff__feature--comment"><%= Enum.count(stuff.comments) %></a>
+          <a href="<%= book_path(@conn, :show, stuff) %>" class="stuff__feature-item stuff__feature--video"><%= Enum.count([]) %></a>
+          <a href="<%= book_path(@conn, :show, stuff) %>" class="stuff__feature-item stuff__feature--photo"><%= Enum.count(stuff.images) %></a>
+        </div>
       </div>
-      <div class="stuff__feature">
-        <a href="#" class="stuff__feature-item stuff__feature--comment">123</a>
-        <a href="#" class="stuff__feature-item stuff__feature--video">7</a>
-        <a href="#" class="stuff__feature-item stuff__feature--photo">352</a>
+
+      <div class="col-sm-7 col-md-9">
+        <%= link stuff.title, to: book_path(@conn, :show, stuff), class: "stuff__title link--huge" %>
+
+        <%= render "description.html", stuff: stuff, conn: @conn  %>
+
+        <div class="stuff__btns">
+          <a href="#" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this stuff</span></a>
+          <a href="#" class="watchlist">Add to watchlist</a>
+        </div>
+
+        <div class="preview-footer">
+          <div class="stuff__rate"><div class="score"></div><span class="stuff__rate-number">170 votes</span> <span class="stuff__rating">5.0</span></div>
+        </div>
       </div>
+
+      <div class="clearfix"></div>
     </div>
-
-    <div class="col-sm-7 col-md-9">
-      <%= link stuff.title, to: book_path(@conn, :show, stuff), class: "stuff__title link--huge" %>
-
-      <%= render "description.html", stuff: stuff, conn: @conn  %>
-
-      <div class="stuff__btns">
-        <a href="#" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this stuff</span></a>
-        <a href="#" class="watchlist">Add to watchlist</a>
-      </div>
-
-      <div class="preview-footer">
-        <div class="stuff__rate"><div class="score"></div><span class="stuff__rate-number">170 votes</span> <span class="stuff__rating">5.0</span></div>
-      </div>
-    </div>
-
-    <div class="clearfix"></div>
-  </div>
   <% end %>
 
   <%= link "New book", to: book_path(@conn, :new) %>
