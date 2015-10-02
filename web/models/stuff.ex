@@ -18,9 +18,11 @@ defmodule MyStuffs.Stuff do
     belongs_to :parental_rating, MyStuffs.ParentalRating
     has_many :images, {"stuffs_images", MyStuffs.Image}, foreign_key: :assoc_id
     has_many :stuffs_genres, MyStuffs.StuffGenre
-    has_many :genres, through: [:stuffs_genres, :genres]
+    has_many :genres, through: [:stuffs_genres, :genre]
     has_many :comments, {"stuffs_comments", MyStuffs.Comment}, foreign_key: :assoc_id
     has_many :seasons, MyStuffs.Season
+    has_many :book_writers_ref, MyStuffs.BookWriter
+    has_many :book_writers, through: [:book_writers_ref, :artist]
 
     timestamps
   end
@@ -38,6 +40,11 @@ defmodule MyStuffs.Stuff do
     model
     |> cast(params, @book_required_fields, @book_optional_fields)
     |> put_change(:type, @type_book)
+  end
+
+  def year(stuff) do
+    {:ok, {year, _month, _day}} = Ecto.Date.dump(stuff.release_date)
+    year
   end
 
   def type_saga, do: @type_saga
