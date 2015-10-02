@@ -1,0 +1,28 @@
+<h2 class="page-heading">photos &amp; videos</h2>
+
+<div class="stuff__media">
+  <div class="stuff__media-switch">
+    <a href="#" class="watchlist list--photo" data-filter='media-photo'><%= Enum.count(@photos) %> photos</a>
+    <a href="#" class="watchlist list--video" data-filter='media-video'><%= Enum.count(@videos) %> videos</a>
+  </div>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <%= for video <- @videos do %>
+        <div class="swiper-slide media-video">
+          <a href='https://www.youtube.com/watch?v=Y5AehBA3IsE' class="stuff__media-item ">
+            <img alt='' src="/images/movie/movie-video1.jpg">
+          </a>
+        </div>
+      <% end %>
+      <%= for photo <- @photos do %>
+        <div class="swiper-slide media-photo">
+          <a href="/images/<%= @folder %>/large/<%= photo.file_name %>" class="stuff__media-item">
+            <img alt='' src="/images/<%= @folder %>/thumb/<%= photo.file_name %>">
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
