@@ -3,7 +3,7 @@
     <h2 class="page-heading"><%= @stuff.title %></h2>
 
     <div class="stuff__info">
-      <div class="col-sm-6 col-md-4 movie-mobile">
+      <div class="col-sm-6 col-md-4 stuff-mobile">
         <div class="stuff__images">
           <span class="stuff__rating"><%= MyStuffs.Stuff.calc_rating(@stuff) %></span>
           <img alt='' src="/images/movie/single-movie.jpg">

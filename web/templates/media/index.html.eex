@@ -1,4 +1,4 @@
-<h2 class="page-heading">photos &amp; videos</h2>
+<h2 id="media" class="page-heading">photos &amp; videos</h2>
 
 <div class="stuff__media">
   <div class="stuff__media-switch">

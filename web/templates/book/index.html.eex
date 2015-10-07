@@ -60,12 +60,20 @@
     <div class="stuff stuff--preview release">
       <div class="col-sm-5 col-md-3">
         <div class="stuff__images">
-          <img alt='' src="/images/movie/movie-sample1.jpg">
+          <a href="<%= book_path(@conn, :show, stuff) %>">
+            <img alt='' src="/images/movie/movie-sample1.jpg">
+          </a>
         </div>
         <div class="stuff__feature">
-          <a href="<%= book_path(@conn, :show, stuff) %>" class="stuff__feature-item stuff__feature--comment"><%= Enum.count(stuff.comments) %></a>
-          <a href="<%= book_path(@conn, :show, stuff) %>" class="stuff__feature-item stuff__feature--video"><%= Enum.count([]) %></a>
-          <a href="<%= book_path(@conn, :show, stuff) %>" class="stuff__feature-item stuff__feature--photo"><%= Enum.count(stuff.images) %></a>
+          <a href="<%= book_path(@conn, :show, stuff) %>#comments" class="stuff__feature-item stuff__feature--comment">
+            <%= Enum.count(stuff.comments) %>
+          </a>
+          <a href="<%= book_path(@conn, :show, stuff) %>#media" class="stuff__feature-item stuff__feature--video">
+            <%= Enum.count([]) %>
+          </a>
+          <a href="<%= book_path(@conn, :show, stuff) %>#media" class="stuff__feature-item stuff__feature--photo">
+            <%= Enum.count(stuff.images) %>
+          </a>
         </div>
       </div>
 

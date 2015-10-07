@@ -1,4 +1,4 @@
-<h2 class="page-heading">comments (<%= Enum.count(@comments) %>)</h2>
+<h2 id="comments" class="page-heading">comments (<%= Enum.count(@comments) %>)</h2>
 
 <div class="comment-wrapper">
   <form id="comment-form" class="comment-form" method='post'>
