@@ -5,7 +5,7 @@
     <div class="stuff__info">
       <div class="col-sm-6 col-md-4 movie-mobile">
         <div class="stuff__images">
-          <span class="stuff__rating">5.0</span>
+          <span class="stuff__rating"><%= MyStuffs.Stuff.calc_rating(@stuff) %></span>
           <img alt='' src="/images/movie/single-movie.jpg">
         </div>
         <div class="stuff__rate">Your vote: <div id='score' class="score"></div></div>

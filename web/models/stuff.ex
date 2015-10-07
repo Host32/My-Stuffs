@@ -15,6 +15,8 @@ defmodule MyStuffs.Stuff do
     field :duration, Ecto.Time
     field :pages, :integer
     field :banner_file_name, :string
+    field :rating_count, :integer
+    field :rating_stars, :integer
     belongs_to :parental_rating, MyStuffs.ParentalRating
     has_many :images, {"stuffs_images", MyStuffs.Image}, foreign_key: :assoc_id
     has_many :stuffs_genres, MyStuffs.StuffGenre
@@ -23,6 +25,7 @@ defmodule MyStuffs.Stuff do
     has_many :seasons, MyStuffs.Season
     has_many :book_writers_ref, MyStuffs.BookWriter
     has_many :book_writers, through: [:book_writers_ref, :artist]
+    has_many :ratings, MyStuffs.Rating
 
     timestamps
   end
@@ -36,6 +39,11 @@ defmodule MyStuffs.Stuff do
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
+  def rating_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(rating_count rating_stars), [])
+  end
+
   def book_changeset(model, params \\ :empty) do
     model
     |> cast(params, @book_required_fields, @book_optional_fields)
@@ -51,5 +59,10 @@ defmodule MyStuffs.Stuff do
   def type_serie, do: @type_serie
   def type_film, do: @type_film
   def type_book, do: @type_book
+
+  def calc_rating(0, _sum), do: 0
+  def calc_rating(nil, _sum), do: 0
+  def calc_rating(count, sum), do: sum / count
+  def calc_rating(%MyStuffs.Stuff{rating_count: count, rating_stars: sum}), do: calc_rating(count, sum)
 
 end
