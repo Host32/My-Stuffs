@@ -16,7 +16,7 @@ defmodule MyStuffs.Rating do
   after_insert :increase_rating_count
   before_update :update_rating_stars
 
-  @required_fields ~w(stars stuff_id)
+  @required_fields ~w(stars stuff_id user_id)
   @optional_fields ~w()
 
   @doc """
