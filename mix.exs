@@ -30,7 +30,7 @@ defmodule MyStuffs.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 1.1"},
+    [{:phoenix, "~> 1.1.2"},
      {:phoenix_ecto, "~> 2.0"},
      {:mariaex, "~> 0.5"},
      {:phoenix_html, "~> 2.3"},

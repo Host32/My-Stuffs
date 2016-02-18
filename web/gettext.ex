@@ -21,4 +21,5 @@ defmodule MyStuffs.Gettext do
   See the [Gettext Docs](http://hexdocs.pm/gettext) for detailed usage.
   """
   use Gettext, otp_app: :my_stuffs
+  
 end

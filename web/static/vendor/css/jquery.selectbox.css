@@ -10,7 +10,7 @@
 	width: 200px;
 }
 .sbHolder:focus .sbSelector{
-	
+
 }
 .sbSelector{
 	display: block;
@@ -30,7 +30,6 @@
 	text-decoration: none;
 }
 .sbToggle{
-	background: url(../img/select-icons.png) 0 -116px no-repeat;
 	display: block;
 	height: 30px;
 	outline: none;
@@ -40,23 +39,20 @@
 	width: 30px;
 }
 .sbToggle:hover{
-	background: url(../img/select-icons.png) 0 -167px no-repeat;
 }
 .sbToggleOpen{
-	background: url(../img/select-icons.png) 0 -16px no-repeat;
 }
 .sbToggleOpen:hover{
-	background: url(../img/select-icons.png) 0 -66px no-repeat;
 }
 .sbHolderDisabled{
 	background-color: #3C3C3C;
 	border: solid 1px #515151;
 }
 .sbHolderDisabled .sbHolder{
-	
+
 }
 .sbHolderDisabled .sbToggle{
-	
+
 }
 .sbOptions{
 	background-color: #212121;
