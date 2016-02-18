@@ -18,7 +18,10 @@ defmodule MyStuffs.Web do
 
   def model do
     quote do
-      use Ecto.Model
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
 
     end
   end
@@ -28,7 +31,8 @@ defmodule MyStuffs.Web do
       use Phoenix.Controller
 
       alias MyStuffs.Repo
-      import Ecto.Model
+
+      import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 
       import MyStuffs.Router.Helpers
@@ -46,6 +50,8 @@ defmodule MyStuffs.Web do
       use Phoenix.HTML
 
       import MyStuffs.Router.Helpers
+      import MyStuffs.ErrorHelpers
+      import MyStuffs.Gettext
 
       import MyStuffs.Session, only: [current_user: 1, logged_in?: 1]
     end
@@ -62,7 +68,7 @@ defmodule MyStuffs.Web do
       use Phoenix.Channel
 
       alias MyStuffs.Repo
-      import Ecto.Model
+      import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 
     end
