@@ -1,6 +1,6 @@
 defmodule MyStuffs.Session do
   alias MyStuffs.User
-  alias MyStuffs.Repo
+  alias MyStuffs.Registration
 
   def login(params, repo) do
     user = repo.get_by(User, email: String.downcase(params["email"]))
@@ -13,7 +13,7 @@ defmodule MyStuffs.Session do
   def authenticate(user, password) do
     case user do
       nil -> false
-      _ -> password == user.encrypted_password
+      _ -> Registration.check_password(password, user.encrypted_password)
     end
   end
 

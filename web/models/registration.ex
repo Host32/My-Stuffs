@@ -8,7 +8,10 @@ defmodule MyStuffs.Registration do
   end
 
   def hashed_password(password) do
-    #TODO
-    password
+    :crypto.hash(:md5, password) |> Base.encode16
+  end
+
+  def check_password(password, stored_hash) do
+    hashed_password(password) == stored_hash
   end
 end
