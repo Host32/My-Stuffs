@@ -1,6 +1,9 @@
 defmodule MyStuffs.SessionController do
   use MyStuffs.Web, :controller
 
+  plug :scrub_params, "stuff" when action in [:create]
+  plug MyStuffs.Plugs.Unauthenticate when action in [:new, :create]
+
   def new(conn, _params) do
     render conn, "new.html"
   end

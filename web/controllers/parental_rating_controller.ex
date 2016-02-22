@@ -4,6 +4,7 @@ defmodule MyStuffs.ParentalRatingController do
   alias MyStuffs.ParentalRating
 
   plug :scrub_params, "parental_rating" when action in [:create, :update]
+  plug MyStuffs.Plugs.Authenticate when action in [:new, :create, :edit, :delete, :update]
 
   def index(conn, _params) do
     parental_ratings = Repo.all(ParentalRating)

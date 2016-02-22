@@ -4,6 +4,7 @@ defmodule MyStuffs.ArtistController do
   alias MyStuffs.Artist
 
   plug :scrub_params, "artist" when action in [:create, :update]
+  plug MyStuffs.Plugs.Authenticate when action in [:new, :create, :edit, :delete, :update]
 
   def index(conn, _params) do
     artists = Repo.all(Artist)

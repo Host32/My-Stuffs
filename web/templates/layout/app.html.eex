@@ -164,6 +164,21 @@
 
     <!-- Main content -->
     <section class="container">
+      <!-- errors -->
+      <%= if !!get_flash(@conn, :error) do %>
+        <div class="alert alert-danger">
+          <p><%= get_flash(@conn, :error) %></p>
+        </div>
+      <% end %>
+      
+      <!-- errors -->
+      <%= if !!get_flash(@conn, :info) do %>
+        <div class="alert alert-info">
+          <p><%= get_flash(@conn, :info) %></p>
+        </div>
+      <% end %>
+
+      <!-- Main content -->
       <%= render @view_module, @view_template, assigns %>
     </section>
 

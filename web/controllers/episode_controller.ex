@@ -4,6 +4,7 @@ defmodule MyStuffs.EpisodeController do
   alias MyStuffs.Episode
 
   plug :scrub_params, "episode" when action in [:create, :update]
+  plug MyStuffs.Plugs.Authenticate when action in [:new, :create, :edit, :delete, :update]
 
   def index(conn, _params) do
     episodes = Repo.all(Episode)

@@ -4,6 +4,7 @@ defmodule MyStuffs.GenreController do
   alias MyStuffs.Genre
 
   plug :scrub_params, "genre" when action in [:create, :update]
+  plug MyStuffs.Plugs.Authenticate when action in [:new, :create, :edit, :delete, :update]
 
   def index(conn, _params) do
     genres = Repo.all(Genre)

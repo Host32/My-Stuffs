@@ -2,6 +2,9 @@ defmodule MyStuffs.RegistrationController do
   use MyStuffs.Web, :controller
   alias MyStuffs.User
 
+  plug :scrub_params, "parental_rating" when action in [:create]
+  plug MyStuffs.Plugs.Unauthenticate when action in [:new, :create]
+
   def new(conn, _params) do
     changeset = User.changeset(%User{})
     render conn, changeset: changeset

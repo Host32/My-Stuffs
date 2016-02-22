@@ -4,6 +4,7 @@ defmodule MyStuffs.SeasonController do
   alias MyStuffs.Season
 
   plug :scrub_params, "season" when action in [:create, :update]
+  plug MyStuffs.Plugs.Authenticate when action in [:new, :create, :edit, :delete, :update]
 
   def index(conn, _params) do
     seasons = Repo.all(Season)

@@ -5,6 +5,7 @@ defmodule MyStuffs.BookController do
   alias MyStuffs.Book
 
   plug :scrub_params, "stuff" when action in [:create, :update]
+  plug MyStuffs.Plugs.Authenticate when action in [:new, :create, :edit, :delete, :update]
 
   def index(conn, _params) do
     stuffs = Stuff

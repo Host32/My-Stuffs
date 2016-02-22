@@ -1,4 +1,4 @@
-defmodule MyStuffs.Plugs.Authenticate do
+defmodule MyStuffs.Plugs.Unauthenticate do
   import Plug.Conn
   import MyStuffs.Router.Helpers
   import Phoenix.Controller
@@ -9,12 +9,12 @@ defmodule MyStuffs.Plugs.Authenticate do
     current_user = get_session(conn, :current_user)
 
     if current_user do
-      put_session(conn, :current_user, current_user)
+      conn
+      |> put_flash(:error, "You are already logged in")
+      |> redirect(to: "/")
+      |> halt
     else
       conn
-      |> put_flash(:error, "You need to be signed in to view this page")
-      |> redirect(to: session_path(conn, :new))
-      |> halt
     end
   end
 end
