@@ -1,0 +1,23 @@
+<div class="control-panel">
+  <%= if logged_in?(@conn) do %>
+    <div class="control-panel">
+      <div class="auth auth--home">
+        <div class="auth__show">
+          <span class="auth__image">
+            <img alt="my_avatar" src="<%= gravatar_url current_user(@conn).email, s: 32 %>" />
+          </span>
+        </div>
+        <%= link current_user(@conn).name, to: session_path(@conn, :delete), method: :delete, class: "btn btn--sign btn--singin" %>
+        <ul class="auth__function">
+          <li><a href="#" class="auth__function-item">Watchlist</a></li>
+          <li><a href="#" class="auth__function-item">Booked tickets</a></li>
+          <li><a href="#" class="auth__function-item">Discussion</a></li>
+          <li><a href="#" class="auth__function-item">Settings</a></li>
+        </ul>
+
+      </div>
+    </div>
+  <% else %>
+    <a href="#" class="btn btn--sign login-window">Sign in</a>
+  <% end %>
+</div>

@@ -54,6 +54,8 @@ defmodule MyStuffs.Web do
       import MyStuffs.Gettext
 
       import MyStuffs.Session, only: [current_user: 1, logged_in?: 1]
+
+      import Exgravatar
     end
   end
 

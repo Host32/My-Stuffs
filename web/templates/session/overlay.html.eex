@@ -1,0 +1,36 @@
+<div class="overlay overlay-hugeinc">
+
+  <section class="container">
+
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="login" id="login-form">
+        <button type="button" class="overlay-close">Close</button>
+
+        <p class="login__title">sign in<br><span class="login-edition">welcome to My-Stuffs</span></p>
+
+        <div class="social social--colored">
+          <a href='#' class="social__variant fa fa-facebook"></a>
+          <a href='#' class="social__variant fa fa-twitter"></a>
+        </div>
+
+        <p class="login__tracker">or</p>
+
+        <%= form_for @conn, session_path(@conn, :create), [name: :session], fn f -> %>
+          <div class="field-wrap">
+            <%= email_input f, :email, class: "login__input", placeholder: "Email" %>
+            <%= password_input f, :password, class: "login__input", placeholder: "Password" %>
+
+            <input type='checkbox' id='#informed' class='login__check styled'>
+            <label for='#informed' class='login__check-info'>remember me</label>
+          </div>
+
+          <div class="login__control">
+            <%= submit "sign in", class: "btn btn-md btn--warning btn--wider" %>
+            <a href="#" class="login__tracker form__tracker">Forgot password?</a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </section>
+</div>

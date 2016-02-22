@@ -4523,7 +4523,7 @@ ul#navigation li.mega-menu__nav-item:hover:before {
 .auth .auth__show {
   background-color: #4c4145;
   display: inline-block;
-  padding-top: 10px;
+  padding-top: 0px;
   padding-left: 4px;
   padding-bottom: 13px;
   min-width: 104px;
@@ -4533,6 +4533,7 @@ ul#navigation li.mega-menu__nav-item:hover:before {
 .auth .auth__image img {
   width: 31px;
   height: 31px;
+  border-radius: 50%;
 }
 .auth .auth__function {
   background-color: #4c4145;
@@ -4575,7 +4576,7 @@ ul#navigation li.mega-menu__nav-item:hover:before {
 }
 .auth .btn--singin {
   position: absolute;
-  top: 9px;
+  top: 0px;
   left: 39px;
   padding-right: 20px;
   z-index: 15;
@@ -8703,9 +8704,7 @@ ul#navigation li.mega-menu__nav-item:hover:before {
   background-color: #4c4145;
 }
 .auth--home {
-  position: absolute;
   top: -10px;
-  right: 155px;
 }
 .auth--home .auth__show {
   background: transparent;

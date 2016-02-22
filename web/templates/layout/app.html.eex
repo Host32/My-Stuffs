@@ -140,33 +140,7 @@
         </nav>
 
         <!-- Additional header buttons / Auth and direct link to booking-->
-        <div class="control-panel">
-          <%= if logged_in?(@conn) do %>
-          <div class="control-panel">
-            <div class="auth auth--home">
-              <div class="auth__show">
-                <span class="auth__image">
-                  <img alt="" src="images/client-photo/auth.png">
-                </span>
-              </div>
-              <a href="#" class="btn btn--sign btn--singin">
-                me
-              </a>
-              <ul class="auth__function">
-                <li><a href="#" class="auth__function-item">Watchlist</a></li>
-                <li><a href="#" class="auth__function-item">Booked tickets</a></li>
-                <li><a href="#" class="auth__function-item">Discussion</a></li>
-                <li><a href="#" class="auth__function-item">Settings</a></li>
-              </ul>
-
-            </div>
-            <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
-          </div>
-          <% else %>
-          <a href="#" class="btn btn--sign login-window">Sign in</a>
-          <% end %>
-          <a href="#" class="btn btn-md btn--warning btn--book login-window">Book a ticket</a>
-        </div>
+        <%= render MyStuffs.SessionView, "login_buttons.html", conn: @conn %>
 
       </div>
     </header>
@@ -183,7 +157,7 @@
             <option value="4">By title</option>
             <option value="5">By year</option>
           </select>
-          <button type='submit' class="btn btn-md btn--danger search__button">search a movie</button>
+          <button type='submit' class="btn btn-md btn--danger search__button">search a media</button>
         </form>
       </div>
     </div>
@@ -243,40 +217,7 @@
   </div>
 
   <!-- open/close -->
-  <div class="overlay overlay-hugeinc">
-
-    <section class="container">
-
-      <div class="col-sm-4 col-sm-offset-4">
-        <button type="button" class="overlay-close">Close</button>
-        <form id="login-form" action="register" class="login" method='post' novalidate=''>
-          <p class="login__title">sign in<br><span class="login-edition">welcome to A.Movie</span></p>
-
-          <div class="social social--colored">
-            <a href='#' class="social__variant fa fa-facebook"></a>
-            <a href='#' class="social__variant fa fa-twitter"></a>
-            <a href='#' class="social__variant fa fa-tumblr"></a>
-          </div>
-
-          <p class="login__tracker">or</p>
-
-          <div class="field-wrap">
-            <input type='email' placeholder='Email' name='user-email' class="login__input">
-            <input type='password' placeholder='Password' name='user-password' class="login__input">
-
-            <input type='checkbox' id='#informed' class='login__check styled'>
-            <label for='#informed' class='login__check-info'>remember me</label>
-          </div>
-
-          <div class="login__control">
-            <button type='submit' class="btn btn-md btn--warning btn--wider">sign in</button>
-            <a href="#" class="login__tracker form__tracker">Forgot password?</a>
-          </div>
-        </form>
-      </div>
-
-    </section>
-  </div>
+  <%= render MyStuffs.SessionView, "overlay.html", conn: @conn %>
 
   <script type="text/javascript">
   $(function(){

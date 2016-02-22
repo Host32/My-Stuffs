@@ -38,6 +38,7 @@ defmodule MyStuffs.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:mogrify, "~> 0.1"},
+     {:exgravatar, "~> 2.0"},
      {:earmark, "~> 0.1", only: :dev},
      {:ex_doc, "~> 0.8", only: :dev}]
   end
