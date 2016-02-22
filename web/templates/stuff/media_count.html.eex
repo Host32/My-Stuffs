@@ -1,0 +1,11 @@
+<div class="stuff__feature">
+  <a href="<%= @link %>#comments" class="stuff__feature-item stuff__feature--comment">
+    <%= @count_coments %>
+  </a>
+  <a href="<%= @link %>#media" class="stuff__feature-item stuff__feature--video">
+    <%= @count_videos %>
+  </a>
+  <a href="<%= @link %>#media" class="stuff__feature-item stuff__feature--photo">
+    <%= @count_images %>
+  </a>
+</div>

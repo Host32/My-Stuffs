@@ -50,7 +50,7 @@ defmodule MyStuffs.BookController do
   end
 
   def edit(conn, %{"id" => id}) do
-    stuff = Book.Query.get!(id)
+    stuff = Book.Query.get!(Stuff, id)
     changeset = Stuff.book_changeset(stuff)
     render(conn, "edit.html", stuff: stuff, changeset: changeset)
   end

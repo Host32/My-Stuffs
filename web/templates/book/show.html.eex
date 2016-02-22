@@ -4,20 +4,15 @@
 
     <div class="stuff__info">
       <div class="col-sm-6 col-md-4 stuff-mobile">
-        <div class="stuff__images">
-          <span class="stuff__rating"><%= MyStuffs.Stuff.calc_rating(@stuff) %></span>
-          <img alt='' src="/images/movie/single-movie.jpg">
-        </div>
-        <div class="stuff__rate">Your vote: <div id='score' class="score"></div></div>
 
-        <div class="share">
-          <span class="share__marker">Share: </span>
-          <div class="addthis_toolbox addthis_default_style ">
-            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-            <a class="addthis_button_tweet"></a>
-            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-          </div>
-        </div>
+        <%= render MyStuffs.StuffView, "image_preview.html",
+                  link: book_path(@conn, :show, @stuff),
+                  image: "/images/movie/movie-sample1.jpg",
+                  rating: MyStuffs.Stuff.calc_rating(@stuff) %>
+
+        <%= render MyStuffs.StuffView, "my_rate.html", stuff: @stuff, conn: @conn %>
+
+        <%= render MyStuffs.StuffView, "share.html", stuff: @stuff, conn: @conn %>
       </div>
 
       <div class="col-sm-6 col-md-8">
@@ -25,10 +20,7 @@
 
         <a href="#" class="comment-link">Comments:  <%= Enum.count(@stuff.comments) %></a>
 
-        <div class="stuff__btns">
-          <a href="#" class="btn btn-md btn--warning">book a ticket for this movie</a>
-          <a href="#" class="watchlist">Add to watchlist</a>
-        </div>
+        <%= render "action_buttons.html", stuff: @stuff, conn: @conn  %>
       </div>
     </div>
 
@@ -43,11 +35,6 @@
 
   <%= render MyStuffs.CommentView, "index.html", comments: @stuff.comments, conn: @conn %>
 </div>
-
-<aside class="col-sm-4 col-md-3">
-  <div class="sitebar">
-  </div>
-</aside>
 
 <script type="text/javascript">
 $(function(){

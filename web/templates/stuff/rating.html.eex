@@ -1,0 +1,5 @@
+<div class="stuff__rate">
+  <div class="score"></div>
+  <span class="stuff__rate-number"><%= @stuff.rating_count %> votes</span>
+  <span class="stuff__rating"><%= MyStuffs.Stuff.calc_rating(@stuff) %></span>
+</div>

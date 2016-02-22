@@ -1,0 +1,4 @@
+<div class="stuff__btns">
+  <a href="#" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this stuff</span></a>
+  <a href="#" class="watchlist">Add to watchlist</a>
+</div>

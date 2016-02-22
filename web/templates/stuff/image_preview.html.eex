@@ -1,0 +1,8 @@
+<div class="stuff__images">
+  <a href="<%= @link %>">
+    <%= if @rating do %>
+      <span class="stuff__rating"><%= @rating %></span>
+    <% end %>
+    <img alt='stuff_image_preview' src="<%= @image %>">
+  </a>
+</div>
