@@ -57,89 +57,21 @@
           <!-- Link navigation -->
           <ul id="navigation">
             <li>
-              <span class="sub-nav-toggle plus"></span>
-              <a href="#">Pages</a>
-              <ul>
-                <li class="menu__nav-item">
-                  <%= link "Artists", to: artist_path(@conn, :index) %>
-                </li>
-                <li class="menu__nav-item">
-                  <%= link "Parental Ratings", to: parental_rating_path(@conn, :index) %>
-                </li>
-                <li class="menu__nav-item">
-                  <%= link "Genres", to: genre_path(@conn, :index) %>
-                </li>
-                <li class="menu__nav-item">
-                  <%= link "Books", to: book_path(@conn, :index) %>
-                </li>
-              </ul>
+              <%= link "Books", to: book_path(@conn, :index) %>
             </li>
             <li>
-              <span class="sub-nav-toggle plus"></span>
-              <a href="page-elements.html">Features</a>
+              <a href="#">Series</a>
             </li>
             <li>
-              <span class="sub-nav-toggle plus"></span>
-              <a href="page-elements.html">Booking steps</a>
+              <a href="#">Movies</a>
             </li>
             <li>
-              <span class="sub-nav-toggle plus"></span>
-              <a href="gallery-four.html">Gallery</a>
-            </li>
-            <li>
-              <span class="sub-nav-toggle plus"></span>
-              <a href="news-left.html">News</a>
-            </li>
-            <li>
-              <span class="sub-nav-toggle plus"></span>
-              <a href="#">Mega menu</a>
-              <ul class="mega-menu container">
-                <li class="col-md-3 mega-menu__coloum">
-                  <h4 class="mega-menu__heading">Now in the cinema</h4>
-                  <ul class="mega-menu__list">
-                    <li class="mega-menu__nav-item">
-                      <%= link "Artists", to: artist_path(@conn, :index) %>
-                    </li>
-                    <li class="mega-menu__nav-item">
-                      <%= link "Parental Ratings", to: parental_rating_path(@conn, :index) %>
-                    </li>
-                    <li class="mega-menu__nav-item">
-                      <%= link "Genres", to: genre_path(@conn, :index) %>
-                    </li>
-                    <li class="mega-menu__nav-item">
-                      <%= link "Books", to: book_path(@conn, :index) %>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                  <ul class="mega-menu__list">
-                    <li class="mega-menu__nav-item">
-                      <%= link "Artists", to: artist_path(@conn, :index) %>
-                    </li>
-                    <li class="mega-menu__nav-item">
-                      <%= link "Parental Ratings", to: parental_rating_path(@conn, :index) %>
-                    </li>
-                    <li class="mega-menu__nav-item">
-                      <%= link "Genres", to: genre_path(@conn, :index) %>
-                    </li>
-                    <li class="mega-menu__nav-item">
-                      <%= link "Books", to: book_path(@conn, :index) %>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                  <ul class="mega-menu__list">
-                    <li class="mega-menu__nav-item"><a href="#">Insidious: Chapter 2</a></li>
-                  </ul>
-                </li>
-              </ul>
+              <%= link "Artists", to: artist_path(@conn, :index) %>
             </li>
           </ul>
         </nav>
 
-        <!-- Additional header buttons / Auth and direct link to booking-->
+        <!-- Additional header buttons / Auth-->
         <%= render MyStuffs.SessionView, "login_buttons.html", conn: @conn %>
 
       </div>
@@ -154,7 +86,7 @@
             <option value="1" selected='selected'>By title</option>
             <option value="2">By year</option>
             <option value="3">By producer</option>
-            <option value="4">By title</option>
+            <option value="4">By genre</option>
             <option value="5">By year</option>
           </select>
           <button type='submit' class="btn btn-md btn--danger search__button">search a media</button>
@@ -170,7 +102,7 @@
           <p><%= get_flash(@conn, :error) %></p>
         </div>
       <% end %>
-      
+
       <!-- errors -->
       <%= if !!get_flash(@conn, :info) do %>
         <div class="alert alert-info">
